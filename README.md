@@ -43,6 +43,8 @@ Tests cover product ordering and links, desktop disclosure controls, mobile menu
 - `src/styles/contact.css`: the contact layout and form panel, with 16px inputs and a single field column on phones. `src/content/contact.ts` supplies the public copy and the project-type choices shared by the form and server validation. Delivery stays disabled until configured.
 - `public/brand/ribbon-b.png`: archived, unchanged copy of the original standalone mark.
 - `public/brand/ribbon-b-primary.png`: the current founder-supplied transparent mark, installed on 7 November 2026 and approved for every website logo placement. `src/content/brand.ts` selects this unchanged asset for navigation, the mobile menu, hero, company section, footer, browser icons and organization metadata. `public/brand/ribbon-b-trial-03.png` is retained as the previous approved mark; superseded trial files have been removed.
+- `src/app/opengraph-image.tsx`: the 1200x630 social share card, rendered at build time from the primary mark and two static Archivo instances in `public/fonts/archivo-og-400.ttf` and `archivo-og-800.ttf`. Those TTFs exist only for `next/og`, which cannot read the site's woff2 files.
+- `src/app/icon.png` and `src/app/apple-icon.png`: the 64px browser icon and 180px iOS icon, generated from the primary mark on the site background. They replace the earlier 1 MB PNG that was being offered as a favicon.
 - `src/components/ui/BrandMark.tsx`: shared static logo presentation. It frames the visible artwork using the transparent image's bounds without editing the source image, keeping the mark aligned beside the wordmark and inside the company panel. The hero retains its separate centered orbital presentation.
 - `src/styles/mobile.css`: the separate phone composition at 700px and below, scoped through the body class. It integrates the complete B orbital scene beside the headline, with its globe, rotating rings, trails and lighting in the same composition. Pause/resume, reduced motion and offscreen rest apply to the complete scene. It also turns cards into portfolio covers, introduces native service disclosures, and recomposes the process, company, inquiry and footer sections. Desktop layouts retain their existing rules. Service disclosures use native keyboard controls and do not add a client library.
 - `public/fonts/`: self-hosted Archivo headings, Inter body text and navigation, and JetBrains Mono labels, following the founder's Capital City FC typography reference. The Bagatata wordmark retains Space Grotesk. OFL licenses are included; there are no external font requests at runtime.
@@ -55,7 +57,7 @@ Copy `.env.example` to `.env.local`, then fill only confirmed values. Never comm
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Confirmed canonical origin. Until configured, canonical URLs are omitted, the sitemap is empty and crawling is disallowed. |
+| `NEXT_PUBLIC_SITE_URL` | Canonical origin. Falls back to `https://bagatata.vercel.app` until a custom domain is purchased; set it to override canonicals, the sitemap and robots.txt. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Optional approved public email. Hidden when blank. |
 | `RESEND_API_KEY` | Server-only email-provider key. |
 | `CONTACT_FROM_EMAIL` | Provider-verified sender address. |

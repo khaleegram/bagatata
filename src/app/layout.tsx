@@ -24,10 +24,14 @@ export const metadata: Metadata = {
     title: "Bagatata — Build what should exist.",
     description: company.description,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bagatata — Build what should exist.",
+    description: company.description,
+  },
   robots: siteConfig.url
     ? { index: true, follow: true }
     : { index: false, follow: false },
-  icons: { icon: brandMark.src, apple: brandMark.src },
 };
 
 export const viewport: Viewport = { themeColor: "#0c0c0b" };
