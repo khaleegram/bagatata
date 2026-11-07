@@ -324,6 +324,27 @@ test("product cards open their corresponding individual views", async ({
   }
 });
 
+test("products with a public site link out to it, and ArewaVanta does not", async ({
+  page,
+}) => {
+  const publicSites: Record<string, string> = {
+    loomis: "https://loomis.digital",
+    eventticketsng: "https://eventticketsng.com",
+    chatcart: "https://chatcart.shop",
+  };
+  for (const [slug, domain] of Object.entries(publicSites)) {
+    await page.goto(`/products/${slug}`);
+    const link = page.getByRole("link", { name: /Visit product website/ });
+    await expect(link).toHaveAttribute("href", domain);
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", /noopener/);
+  }
+  await page.goto("/products/arewavanta");
+  await expect(
+    page.getByRole("link", { name: /Visit product website/ }),
+  ).toHaveCount(0);
+});
+
 test("reduced motion removes decorative animation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");

@@ -77,21 +77,29 @@ export default async function ProductPage({
                 </li>
               ))}
             </ul>
-            <Link href="/#contact" className="button button-gold">
-              Ask about {product.name}
-              <Arrow />
-            </Link>
-            {product.externalLinkEnabled && product.knownDomain && (
-              <a
-                className="text-link"
-                href={product.knownDomain}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit product website <Arrow />
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            )}
+            <div className="product-detail-actions">
+              {product.externalLinkEnabled && product.knownDomain ? (
+                <>
+                  <a
+                    className="button button-gold"
+                    href={product.knownDomain}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit product website <Arrow />
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                  <Link href="/#contact" className="text-link">
+                    Ask about {product.name} <Arrow />
+                  </Link>
+                </>
+              ) : (
+                <Link href="/#contact" className="button button-gold">
+                  Ask about {product.name}
+                  <Arrow />
+                </Link>
+              )}
+            </div>
           </div>
         </div>
         <div className="other-products">

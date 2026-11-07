@@ -818,6 +818,16 @@
 .product-detail-body .text-link {
   margin-top: 20px;
 }
+.product-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 28px;
+  margin-top: 30px;
+}
+.product-detail-actions .text-link {
+  margin-top: 0;
+}
 .other-products {
   border-top: 1px solid var(--line);
   padding-top: 25px;
