@@ -1,5 +1,13 @@
 import { test, expect } from "@playwright/test";
 
+/** The public sites each product card now opens directly. */
+const LIVE_SITES: Record<string, string> = {
+  loomis: "https://loomis.digital",
+  eventticketsng: "https://eventticketsng.com",
+  chatcart: "https://chatcart.shop",
+  arewavanta: "https://arewavanta.com",
+};
+
 test("homepage presents the approved brand and the four products in order", async ({
   page,
 }) => {
@@ -27,8 +35,11 @@ test("homepage presents the approved brand and the four products in order", asyn
   ]);
   await expect(page.locator("#products .illustration-caption")).toHaveCount(4);
   await expect(page.locator("#products .product-card-link")).toHaveCount(4);
-  for (const link of await page.locator("#products .product-card-link").all()) {
-    await expect(link).toHaveAttribute("href", /^\/products\//);
+  for (const [slug, domain] of Object.entries(LIVE_SITES)) {
+    const link = page.locator(`#products article.${slug} .product-card-link`);
+    await expect(link).toHaveAttribute("href", domain);
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", /noopener/);
   }
   expect(errors).toEqual([]);
 });
@@ -310,13 +321,9 @@ for (const width of [320, 390, 768, 1024, 1440]) {
   });
 }
 
-test("product cards open their corresponding individual views", async ({
-  page,
-}) => {
-  for (const slug of ["loomis", "eventticketsng", "chatcart", "arewavanta"]) {
-    await page.goto("/");
-    await page.locator(`#products a[href='/products/${slug}']`).click();
-    await expect(page).toHaveURL(new RegExp(`/products/${slug}$`));
+test("each product still has its own detail view", async ({ page }) => {
+  for (const slug of Object.keys(LIVE_SITES)) {
+    await page.goto(`/products/${slug}`);
     await expect(page.locator(".product-detail-visual")).toBeVisible();
     await expect(
       page.locator(".product-detail-visual .illustration-caption"),
@@ -324,25 +331,14 @@ test("product cards open their corresponding individual views", async ({
   }
 });
 
-test("products with a public site link out to it, and ArewaVanta does not", async ({
-  page,
-}) => {
-  const publicSites: Record<string, string> = {
-    loomis: "https://loomis.digital",
-    eventticketsng: "https://eventticketsng.com",
-    chatcart: "https://chatcart.shop",
-  };
-  for (const [slug, domain] of Object.entries(publicSites)) {
+test("each product page links out to its live site", async ({ page }) => {
+  for (const [slug, domain] of Object.entries(LIVE_SITES)) {
     await page.goto(`/products/${slug}`);
     const link = page.getByRole("link", { name: /Visit product website/ });
     await expect(link).toHaveAttribute("href", domain);
     await expect(link).toHaveAttribute("target", "_blank");
     await expect(link).toHaveAttribute("rel", /noopener/);
   }
-  await page.goto("/products/arewavanta");
-  await expect(
-    page.getByRole("link", { name: /Visit product website/ }),
-  ).toHaveCount(0);
 });
 
 test("reduced motion removes decorative animation", async ({ page }) => {

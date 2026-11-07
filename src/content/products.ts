@@ -104,8 +104,8 @@ export const products: readonly Product[] = [
       "Match scoring",
       "Player rankings",
     ],
-    knownDomain: null,
-    externalLinkEnabled: false,
+    knownDomain: "https://arewavanta.com",
+    externalLinkEnabled: true,
     visualIsIllustrative: true,
   },
 ];
