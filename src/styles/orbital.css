@@ -211,7 +211,7 @@
   width: 90%;
   height: auto;
   /* Center the supplied mark's visible bounds within the disc. */
-  transform: translate(0.48%, -0.72%);
+  transform: translate(1.87%, -0.68%);
 }
 .orbital-point {
   position: absolute;

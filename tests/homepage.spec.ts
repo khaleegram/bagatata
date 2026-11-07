@@ -16,7 +16,7 @@ test("homepage presents the approved brand and the four products in order", asyn
   ]) {
     await expect(page.locator(selector)).toHaveAttribute(
       "src",
-      /ribbon-b-trial-03/,
+      /ribbon-b-primary/,
     );
   }
   await expect(page.locator("#products article h3")).toHaveText([
@@ -455,7 +455,7 @@ test("the phone hero integrates the supplied B beside the headline", async ({
     expect(artwork!.y + artwork!.height).toBeLessThan(description!.y);
     await expect(page.locator(".hero .orbital-core img")).toHaveAttribute(
       "src",
-      /ribbon-b-trial-03/,
+      /ribbon-b-primary/,
     );
     for (const layer of await page
       .locator(

@@ -9,7 +9,7 @@
     "problem": "Schools run critical processes through fragmented systems and manual records.",
     "highlights": ["Student management", "Attendance and gradebook", "School finance", "Parent communication"],
     "knownDomain": "https://loomis.digital",
-    "externalLinkEnabled": false,
+    "externalLinkEnabled": true,
     "legalRelationshipVerified": false,
     "visualIsIllustrative": true
   },
@@ -37,7 +37,7 @@
     "problem": "Social commerce conversations and payments often sit in disconnected workflows.",
     "highlights": ["Product discovery", "Seller-buyer chat", "Deals and offers", "Checkout and order tracking"],
     "knownDomain": "https://chatcart.shop",
-    "externalLinkEnabled": false,
+    "externalLinkEnabled": true,
     "legalRelationshipVerified": true,
     "legalNoteInternal": "Bagatata has described ChatCart as its trading name/merchant activity. Do not claim wallets, deposits, escrow or payment custody; Paystack is payment processor.",
     "visualIsIllustrative": true

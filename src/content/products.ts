@@ -38,7 +38,7 @@ export const products: readonly Product[] = [
       "Parent communication",
     ],
     knownDomain: "https://loomis.digital",
-    externalLinkEnabled: false,
+    externalLinkEnabled: true,
     visualIsIllustrative: true,
   },
   {
@@ -61,7 +61,7 @@ export const products: readonly Product[] = [
       "Agent workflows",
     ],
     knownDomain: "https://eventticketsng.com",
-    externalLinkEnabled: false,
+    externalLinkEnabled: true,
     visualIsIllustrative: true,
   },
   {
@@ -83,7 +83,7 @@ export const products: readonly Product[] = [
       "Order tracking",
     ],
     knownDomain: "https://chatcart.shop",
-    externalLinkEnabled: false,
+    externalLinkEnabled: true,
     visualIsIllustrative: true,
   },
   {
