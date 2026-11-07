@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0c0b" />
+  <meta name="description" content="Bagatata Technologies Limited is an independent technology company building ambitious digital products, intelligent systems, and real-world platforms from Abuja, Nigeria." />
+  <title>Bagatata Technologies | Build What Should Exist</title>
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" type="image/png" href="assets/ribbon-b.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#0c0c0b;--bg2:#151411;--gold:#ddb47a;--gold2:#a7773d;--paper:#f1eee6;--ink:#151513;--muted:#9c9a92;--line:rgba(244,238,224,.12);--font-display:'Space Grotesk',Arial,sans-serif;--font-body:'DM Sans',Arial,sans-serif;--font-mono:'Space Mono',monospace}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:85px}
+    body{margin:0;background:var(--bg);color:var(--paper);font-family:var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body.menu-open,body.modal-open{overflow:hidden}
+    ::selection{background:var(--gold);color:#111}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+    img{max-width:100%;display:block}
+    .mono{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+    .wrap{width:min(100% - 100px,1440px);margin-inline:auto}
+    .top-progress{position:fixed;left:0;top:0;height:2px;z-index:100;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;width:100%;pointer-events:none}
+    .grain{pointer-events:none;position:fixed;inset:0;opacity:.07;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+    .nav{height:90px;position:fixed;z-index:90;top:0;left:0;right:0;display:flex;align-items:center;transition:background .3s,border-color .3s;background:linear-gradient(180deg,rgba(6,6,6,.72),transparent);border-bottom:1px solid transparent}
+    .nav.scrolled{background:rgba(13,13,12,.91);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;min-width:0}
+    .brand-mark{width:43px;height:47px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(191,124,57,.11))}
+    .brand-word{display:flex;flex-direction:column;gap:1px}
+    .brand-name{font-family:var(--font-display);font-weight:700;letter-spacing:.085em;font-size:18px;line-height:1}
+    .brand-sub{font-size:7.5px;letter-spacing:.27em;color:var(--gold);font-weight:700;line-height:1.6}
+    .nav-links{display:flex;align-items:center;gap:36px;margin-left:auto}
+    .nav-links a{font-size:12px;font-weight:700;color:#c8c6c0;transition:color .2s;position:relative}
+    .nav-links a:hover{color:#fff}
+    .nav-button{display:inline-flex;gap:16px;align-items:center;border:1px solid rgba(221,180,122,.48);padding:13px 18px 13px 22px;font-size:12px;font-weight:700;transition:background .2s,transform .2s;white-space:nowrap}
+    .nav-button:hover{background:var(--gold);color:#15120d;transform:translateY(-2px)}
+    .nav-button span{font-size:19px;font-weight:400;line-height:.7}
+    .menu-button{display:none;background:none;color:var(--paper);border:1px solid var(--line);width:44px;height:44px;align-items:center;justify-content:center;font-size:22px}
+    .mobile-panel{display:none}
+    .hero{min-height:840px;min-height:100svh;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;padding:148px 0 88px;background:radial-gradient(ellipse 45% 65% at 80% 47%,rgba(112,67,29,.12),transparent 75%),#0c0c0b}
+    .hero:before{content:'';pointer-events:none;position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(219,180,117,.035) 1px,transparent 1px),linear-gradient(rgba(219,180,117,.035) 1px,transparent 1px);background-size:96px 96px;mask-image:linear-gradient(110deg,transparent 9%,black 50%,black 92%,transparent);opacity:.7;z-index:-1}
+    .hero:after{content:'';pointer-events:none;position:absolute;height:1px;bottom:0;left:0;right:0;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.35}
+    .hero-grid{display:grid;grid-template-columns:1.07fr .93fr;align-items:center;gap:2vw;width:100%;position:relative}
+    .eyebrow{display:flex;align-items:center;gap:14px;color:var(--gold);font-family:var(--font-mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+    .eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--gold)}
+    .hero h1{font:700 clamp(66px,8.5vw,144px)/.89 var(--font-display);letter-spacing:-.095em;margin:37px 0 29px;max-width:900px}
+    .hero h1 span{display:block;white-space:nowrap}
+    .hero h1 em{font-style:normal;color:var(--gold);background:linear-gradient(105deg,#f0d09a,#b87c3c 70%,#edcc94);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-description{font-size:16px;line-height:1.8;color:#aaa8a0;max-width:480px;margin:0 0 35px}
+    .hero-actions{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+    .btn-solid{display:inline-flex;justify-content:space-between;align-items:center;gap:30px;background:var(--gold);color:#17120b;padding:20px 22px;font-size:12px;letter-spacing:.01em;font-weight:800;border:1px solid var(--gold);transition:transform .2s,background .2s}
+    .btn-solid:hover{transform:translateY(-3px);background:#f2d3a4}
+    .btn-solid span{font-size:23px;font-weight:400;line-height:.6}
+    .btn-quiet{display:inline-flex;gap:12px;align-items:center;font-weight:700;font-size:12px;border-bottom:1px solid #75736d;padding:10px 0;transition:color .2s}
+    .btn-quiet:hover{color:var(--gold)}
+    .hero-foot{margin-top:87px;display:flex;gap:45px}
+    .hero-foot .mono{color:#a4a39d;line-height:1.7;font-size:10px}
+    .hero-foot strong{display:block;color:#e6e2db;font:500 20px/1.4 var(--font-display);letter-spacing:-.03em}
+    .hero-visual{height:min(680px,47vw);min-height:480px;position:relative;display:grid;place-items:center;transform:translateX(4%);isolation:isolate}
+    .visual-haze{position:absolute;inset:12%;background:radial-gradient(circle,rgba(175,109,44,.16),transparent 62%);filter:blur(25px)}
+    .visual-halo{width:86%;aspect-ratio:1;border:1px solid rgba(212,168,105,.11);border-radius:50%;position:absolute;box-shadow:0 0 80px rgba(147,92,37,.05),inset 0 0 70px rgba(147,92,37,.025)}
+    .visual-halo:after{content:'';position:absolute;inset:8%;border:1px dashed rgba(224,175,107,.13);border-radius:50%;animation:spin 70s linear infinite}
+    .sphere{width:77%;aspect-ratio:1;position:relative;display:grid;place-items:center;transform-style:preserve-3d;animation:float 7s ease-in-out infinite}
+    .sphere-rings{position:absolute;inset:0;transform-style:preserve-3d;animation:globe-turn 24s linear infinite}
+    .sphere .longitude{position:absolute;inset:5%;border:1px solid rgba(232,170,88,.49);border-radius:50%;box-shadow:inset 0 0 18px rgba(243,174,89,.05),0 0 21px rgba(243,174,89,.04);transform-style:preserve-3d;will-change:transform}
+    .sphere .l1{transform:rotateY(0deg) rotateZ(-14deg)}.sphere .l2{transform:rotateY(38deg) rotateZ(-14deg)}.sphere .l3{transform:rotateY(76deg) rotateZ(-14deg)}.sphere .l4{transform:rotateY(114deg) rotateZ(-14deg)}.sphere .l5{transform:rotateY(152deg) rotateZ(-14deg)}
+    .sphere .lat{position:absolute;border:1px solid rgba(225,164,89,.33);border-radius:50%;width:87%;height:29%;transform:rotate(-17deg)}
+    .sphere .lat1{top:23%}.sphere .lat2{top:36%}.sphere .lat3{top:49%}
+    .sphere:after{content:'';position:absolute;inset:3%;border:1px solid rgba(239,181,108,.44);border-radius:50%;box-shadow:0 0 35px rgba(239,181,108,.12)}
+    .sphere-center{z-index:2;width:54%;height:54%;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 45% 40%,#302319 0%,#14100d 50%,#080807 70%);box-shadow:0 0 80px rgba(206,140,57,.12),0 0 0 1px rgba(211,159,92,.19),inset 0 0 45px rgba(211,159,92,.07)}
+    .sphere-center img{width:59%;height:70%;object-fit:contain;filter:drop-shadow(0 5px 21px rgba(224,154,65,.2))}
+    .particle{position:absolute;width:4px;height:4px;background:#ffdfad;border-radius:50%;box-shadow:0 0 16px 3px rgba(236,175,102,.6)}
+    .p1{left:17%;top:23%}.p2{right:11%;top:33%;width:3px;height:3px}.p3{left:17%;bottom:19%;width:2px;height:2px}.p4{right:20%;bottom:19%;width:3px;height:3px}
+    .orbit-note{position:absolute;background:rgba(23,21,18,.84);backdrop-filter:blur(11px);border:1px solid rgba(203,164,107,.23);padding:14px 18px;min-width:143px;box-shadow:0 12px 35px rgba(0,0,0,.25)}
+    .orbit-note small{display:block;color:var(--gold);font:400 9px/1.5 var(--font-mono);letter-spacing:.15em;margin-bottom:5px}
+    .orbit-note strong{font:600 13px/1.4 var(--font-display)}
+    .note-top{right:3%;top:20%}.note-bottom{left:0%;bottom:16%}
+    .visual-index{position:absolute;right:4%;bottom:8%;font:10px var(--font-mono);color:#79756b;letter-spacing:.14em}
+    .vertical-rail{position:absolute;left:21px;top:53%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font:9px var(--font-mono);color:#8b806f;letter-spacing:.24em;opacity:.8}
+    .section-label{display:flex;align-items:center;justify-content:space-between;gap:20px;font:10px var(--font-mono);letter-spacing:.15em;text-transform:uppercase}
+    .section-label .right{opacity:.6}
+    .ticker{background:#1a1916;overflow:hidden;border-bottom:1px solid rgba(220,184,130,.13);border-top:1px solid rgba(220,184,130,.13);height:68px;display:flex;align-items:center}
+    .ticker-track{display:flex;gap:0;white-space:nowrap;animation:marquee 42s linear infinite;width:max-content}
+    .ticker-track span{display:inline-flex;align-items:center;gap:31px;padding:0 33px;font:500 16px var(--font-display);letter-spacing:.04em;color:#d3c8b6}
+    .ticker-track b{font:400 14px var(--font-mono);color:var(--gold)}
+    .products{background:var(--paper);color:var(--ink);padding:125px 0 132px;position:relative}
+    .products .section-label{color:#7e7b72}
+    .section-heading{display:flex;align-items:end;justify-content:space-between;gap:34px;margin:35px 0 67px}
+    .section-heading h2{font:700 clamp(54px,7.7vw,110px)/.96 var(--font-display);letter-spacing:-.085em;margin:0;max-width:920px}
+    .section-heading h2 em{font-style:normal;color:#988469}
+    .section-heading p{color:#67645e;max-width:295px;margin:0 0 6px;font-size:14px;line-height:1.8}
+    .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .product-card{position:relative;overflow:hidden;min-height:525px;background:#161615;color:#fff;isolation:isolate;border:1px solid #252522;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+    .product-card:hover{transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.13)}
+    .product-card.wide{grid-column:span 2;min-height:565px}
+    .product-card .back-grid{position:absolute;inset:0;opacity:.26;background-image:linear-gradient(#d8bc8f12 1px,transparent 1px),linear-gradient(90deg,#d8bc8f12 1px,transparent 1px);background-size:55px 55px;z-index:-1}
+    .product-content{position:relative;z-index:2;padding:42px;max-width:450px;display:flex;align-items:start;flex-direction:column;min-height:inherit}
+    .product-num{font:10px var(--font-mono);color:#9f9a8f;letter-spacing:.14em;margin-bottom:auto}
+    .product-text{margin-top:40px}
+    .product-tag{font:10px var(--font-mono);color:#d6ac79;letter-spacing:.12em;text-transform:uppercase}
+    .product-content h3{font:700 clamp(40px,5.1vw,68px)/1 var(--font-display);letter-spacing:-.065em;margin:13px 0 15px}
+    .product-content p{font-size:14px;line-height:1.8;color:#b3b2a9;max-width:325px;margin:0 0 30px}
+    .product-link{display:inline-flex;gap:15px;align-items:center;font:700 11px var(--font-body);border-bottom:1px solid rgba(218,176,118,.65);padding-bottom:9px;text-transform:uppercase;letter-spacing:.06em}
+    .product-link span{font-size:17px;transition:transform .2s}
+    .product-link:hover span{transform:translate(3px,-3px)}
+    .product-card.loomis{background:radial-gradient(ellipse at 83% 63%,#473a27 0%,transparent 54%),#191a19}
+    .product-card.ticket{background:radial-gradient(ellipse at 79% 66%,#252931 0%,transparent 54%),#101114}
+    .product-card.cart{background:radial-gradient(ellipse at 85% 100%,rgba(160,122,40,.29),transparent 56%),#191714}
+    .product-card.vanta{background:radial-gradient(ellipse at 80% 78%,rgba(99,99,116,.35),transparent 58%),#151519}
+    .product-card.cart .product-content,.product-card.vanta .product-content{padding:35px;max-width:75%}
+    .product-card.cart .product-content h3,.product-card.vanta .product-content h3{font-size:48px}
+    .mock-window{position:absolute;right:-3%;top:12%;width:51%;height:78%;border-radius:11px 0 0 0;background:#f6f5ef;box-shadow:0 35px 100px rgba(0,0,0,.5);transform:rotate(-3deg) skewY(1deg);overflow:hidden;border:5px solid #383934;z-index:1;transition:transform .5s}
+    .product-card:hover .mock-window{transform:rotate(-1deg) skewY(0deg) translateY(-6px)}
+    .mock-top{height:48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e4e2dc;padding:0 22px;color:#171c18;font:700 13px var(--font-display)}
+    .mock-dot{display:inline-flex;gap:6px;align-items:center}.mock-dot i{height:7px;width:7px;border-radius:50%;background:#c7c6c1}.mock-dot i:first-child{background:#d7ad75}
+    .mock-body{display:grid;grid-template-columns:90px 1fr;height:calc(100% - 48px)}
+    .mock-side{background:#ecece6;border-right:1px solid #e0ded9;padding:25px 14px;display:flex;flex-direction:column;gap:22px}
+    .mock-side i{height:5px;background:#c7c7bf;border-radius:8px}.mock-side i:first-child{background:#bf9e64}
+    .mock-main{padding:30px 33px;color:#252820}
+    .mock-main .tiny{font:9px var(--font-mono);letter-spacing:.06em;color:#777970}
+    .mock-main h4{font:700 25px var(--font-display);margin:11px 0 23px;letter-spacing:-.05em}
+    .mock-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .mock-metric{border:1px solid #e6e4dd;padding:14px 10px;min-height:80px;border-radius:5px;background:white}
+    .mock-metric b{display:block;height:9px;width:55%;border-radius:10px;background:#a9b39e;margin-top:16px}.mock-metric:nth-child(2) b{background:#d6af79}.mock-metric:nth-child(3) b{background:#788ba1}
+    .mock-bars{display:flex;align-items:end;gap:10px;height:135px;margin-top:30px;border-bottom:1px solid #e5e2da}
+    .mock-bars span{background:#e1ccb0;flex:1;border-radius:4px 4px 0 0;min-width:4px}
+    .mock-bars span:nth-child(even){background:#b3bfa9}
+    .ticket-art{position:absolute;z-index:1;right:4%;top:10%;width:44%;height:78%;display:flex;align-items:center;justify-content:center;transform:rotate(10deg);transition:transform .5s}
+    .product-card:hover .ticket-art{transform:rotate(6deg) translateY(-8px)}
+    .ticket-shell{position:relative;width:83%;height:95%;background:#f4eee1;color:#101114;display:flex;flex-direction:column;padding:24px;box-shadow:0 30px 70px rgba(0,0,0,.45);border-radius:12px;overflow:hidden}
+    .ticket-shell:before,.ticket-shell:after{content:'';position:absolute;width:25px;height:25px;background:#191a20;border-radius:50%;top:69%;left:-13px}.ticket-shell:after{left:auto;right:-13px}
+    .ticket-head{display:flex;justify-content:space-between;font:700 10px var(--font-mono);letter-spacing:.1em}
+    .ticket-illustration{flex:1;margin:22px 0 0;background:radial-gradient(circle at 50% 50%,#e0bf84 0 5%,transparent 6%),repeating-radial-gradient(circle at 50% 50%,transparent 0 14px,#dbb785 15px 16px,transparent 17px 27px),#101319;position:relative;overflow:hidden}
+    .ticket-illustration:before{content:'ACCESS';color:#f4eee1;position:absolute;top:30%;left:-5%;font:700 clamp(28px,4vw,64px) var(--font-display);letter-spacing:-.08em;transform:rotate(-12deg)}
+    .ticket-illustration:after{content:'SAMPLE PASS';position:absolute;bottom:14px;left:12px;color:#e9c590;font:8px var(--font-mono);letter-spacing:.12em}
+    .ticket-cut{border-top:2px dashed #b2a897;margin:20px -24px 15px}
+    .ticket-bottom{display:flex;align-items:end;justify-content:space-between;gap:10px}
+    .ticket-bottom b{font:700 21px var(--font-display);letter-spacing:-.05em}.ticket-bottom small{font:8px/1.8 var(--font-mono);color:#73736e;display:block;margin-top:6px}
+    .fake-qr{display:grid;grid-template-columns:repeat(9,1fr);width:76px;height:76px;gap:1px;background:#e7e0d2;padding:3px;flex:none}.fake-qr i{background:#efe8dc}.fake-qr i.on{background:#111}
+    .phone{position:absolute;z-index:1;right:-1%;bottom:-15%;height:72%;width:40%;max-width:245px;border:7px solid #2c2b2a;border-radius:30px 30px 0 0;background:#faf9f5;color:#21201d;overflow:hidden;transform:rotate(10deg);box-shadow:-20px -20px 60px #0005;transition:transform .4s}
+    .product-card:hover .phone{transform:rotate(6deg) translateY(-5px)}
+    .phone:before{content:'';position:absolute;width:29%;height:10px;background:#242322;border-radius:0 0 11px 11px;top:0;left:35%}
+    .phone-header{padding:29px 15px 16px;background:#f2eee6;font:700 12px var(--font-display);border-bottom:1px solid #e4ddd2}
+    .phone-message{padding:14px 10px 14px 12px;margin:14px 15px 0;background:#ede8dc;border-radius:12px 12px 12px 1px;font:11px/1.4 var(--font-body);width:78%}
+    .phone-message.out{background:#dfc08c;margin:14px 12px 0 auto;border-radius:12px 12px 1px 12px}
+    .phone-product{margin:20px 12px 10px;background:#eee5d6;border-radius:9px;padding:12px;display:flex;gap:9px;align-items:center;font:10px var(--font-body)}
+    .phone-product i{width:44px;height:43px;border-radius:6px;background:linear-gradient(140deg,#b08549 30%,#f0d3a5 31% 60%,#7a5936 61%);flex:none}
+    .phone-product b{display:block;font-size:12px}
+    .br-score{position:absolute;z-index:1;right:-8%;bottom:6%;width:79%;height:47%;background:#171920;transform:rotate(-8deg);border:1px solid #3a3a43;box-shadow:0 30px 90px #0008;transition:transform .45s;overflow:hidden}
+    .product-card:hover .br-score{transform:rotate(-4deg) translateY(-7px)}
+    .br-head{padding:16px 22px;display:flex;align-items:center;justify-content:space-between;background:#22252d;border-bottom:1px solid #494951}
+    .br-head b{font:700 15px var(--font-display)}.br-head span{font:9px var(--font-mono);color:#dec090}
+    .br-row{display:grid;grid-template-columns:30px 1fr 75px;gap:15px;align-items:center;padding:16px 22px;border-bottom:1px solid #ffffff13;font:11px var(--font-mono);color:#babac4}
+    .br-row i{height:8px;background:#c2a87d;border-radius:4px}.br-row:nth-child(3) i{width:70%;background:#8c8f9b}.br-row:nth-child(4) i{width:47%;background:#767985}
+    .br-row strong{color:white;text-align:right}
+    .capabilities{background:#0c0c0b;padding:137px 0 140px;position:relative;overflow:hidden}
+    .capabilities:before{content:'';position:absolute;left:50%;top:-200px;width:900px;height:650px;background:radial-gradient(circle,rgba(171,116,47,.08),transparent 67%);pointer-events:none}
+    .capabilities .section-label{color:#d0af80}
+    .cap-head{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:end;margin:39px 0 85px}
+    .cap-head h2{margin:0;font:700 clamp(52px,7vw,100px)/.96 var(--font-display);letter-spacing:-.085em}
+    .cap-head h2 em{font-style:normal;color:var(--gold)}
+    .cap-head p{color:#a8a69d;line-height:1.9;font-size:16px;max-width:450px;justify-self:end;margin:0 0 5px}
+    .cap-list{border-top:1px solid var(--line)}
+    .cap-row{display:grid;grid-template-columns:80px 1fr minmax(240px,.8fr) 36px;gap:20px;align-items:center;padding:37px 0;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
+    .cap-row:hover{padding-left:12px;background:rgba(213,173,117,.027)}
+    .cap-row .num{color:var(--gold);font:11px var(--font-mono)}
+    .cap-row h3{font:600 clamp(27px,3.4vw,45px) var(--font-display);letter-spacing:-.055em;margin:0}
+    .cap-row p{color:#928e85;font-size:13px;line-height:1.75;margin:0}
+    .cap-arrow{font-size:23px;color:var(--gold);font-weight:300}
+    .statement{background:var(--gold);color:#1b1710;min-height:600px;display:flex;align-items:center;padding:85px 0;position:relative;overflow:hidden}
+    .statement:after{content:'B';position:absolute;right:-.05em;bottom:-.32em;font:700 clamp(360px,60vw,970px)/1 var(--font-display);letter-spacing:-.14em;color:#000;opacity:.045;pointer-events:none}
+    .statement .mono{font-size:11px;letter-spacing:.16em}
+    .statement h2{font:700 clamp(56px,8.25vw,133px)/.99 var(--font-display);letter-spacing:-.09em;margin:40px 0 35px;max-width:1400px;position:relative;z-index:1}
+    .statement h2 em{font-style:normal;color:#fff8ea}
+    .statement .subline{display:flex;justify-content:space-between;gap:30px;align-items:center;border-top:1px solid #26201560;padding-top:20px;position:relative;z-index:1}
+    .statement .subline p{margin:0;max-width:560px;font-size:14px;line-height:1.8}
+    .about{padding:135px 0 140px;background:#151411;position:relative;overflow:hidden}
+    .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:12%;align-items:start}
+    .about-left .mono{color:var(--gold)}
+    .about-left img{width:65%;max-width:350px;margin-top:55px;filter:drop-shadow(0 16px 50px #be804920)}
+    .about h2{font:700 clamp(44px,5.6vw,79px)/1.03 var(--font-display);letter-spacing:-.075em;margin:0 0 33px}
+    .about h2 em{color:var(--gold);font-style:normal}
+    .about p{max-width:650px;color:#aaa69e;font-size:16px;line-height:1.9}
+    .about-tags{margin-top:40px;display:flex;gap:10px;flex-wrap:wrap}
+    .about-tags span{border:1px solid rgba(219,180,117,.25);padding:12px 15px;font:10px var(--font-mono);color:#c7b99f}
+    .about-meta{display:flex;justify-content:space-between;gap:20px;margin-top:70px;border-top:1px solid var(--line);padding-top:25px;color:#9a958a}
+    .about-meta b{display:block;color:#e6dccd;font-size:16px;margin-top:11px;font-weight:500}
+    .cta{padding:130px 0 120px;background:var(--paper);color:#141310;position:relative}
+    .cta .section-label{color:#8d7b62}
+    .cta h2{font:700 clamp(58px,10vw,155px)/.9 var(--font-display);letter-spacing:-.095em;margin:65px 0 55px;max-width:1350px}
+    .cta h2 em{font-style:normal;color:#a88355}
+    .cta-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #c9c2b4;padding-top:25px}
+    .cta-bottom p{color:#5e5a53;font-size:14px;line-height:1.8;max-width:400px}
+    .cta .btn-solid{background:#181714;color:#fff;border-color:#181714;padding:22px 24px}
+    .cta .btn-solid:hover{background:#473624}
+    .footer{background:#090909;padding:55px 0 25px}
+    .footer-top{display:grid;grid-template-columns:1.25fr .8fr .8fr;gap:50px;padding-bottom:65px}
+    .footer .brand{align-items:center}.footer .brand-mark{width:53px;height:60px}.footer .brand-name{font-size:24px}.footer .brand-sub{font-size:8.5px}
+    .footer-slogan{margin-top:22px;font-size:13px;color:#94918b;line-height:1.8;max-width:325px}
+    .footer-column h4{font:10px var(--font-mono);color:var(--gold);letter-spacing:.13em;text-transform:uppercase;margin:5px 0 24px}
+    .footer-column a,.footer-column span{display:block;font-size:13px;color:#b1afa8;margin-bottom:15px;transition:color .2s}
+    .footer-column a:hover{color:var(--gold)}
+    .footer-bottom{border-top:1px solid var(--line);padding-top:23px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#78766f;font:10px/1.8 var(--font-mono);letter-spacing:.02em}
+    .footer-bottom span:last-child{color:#b0a78f}
+    .modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(2,2,2,.76);backdrop-filter:blur(15px)}
+    .modal.open{display:flex}
+    .modal-dialog{position:relative;width:min(100%,580px);max-height:95svh;overflow-y:auto;background:#eee9df;color:#191714;padding:35px;box-shadow:0 22px 100px rgba(0,0,0,.4)}
+    .modal-close{position:absolute;right:27px;top:25px;width:35px;height:35px;border:1px solid #c9bea9;background:transparent;color:#191714;font-size:21px}
+    .modal h3{font:700 45px/.98 var(--font-display);letter-spacing:-.08em;margin:33px 0 15px}
+    .modal p{font-size:13px;color:#625d55;line-height:1.7;margin-bottom:23px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .field{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+    .field label{font:10px var(--font-mono);letter-spacing:.09em;text-transform:uppercase;color:#555045}
+    .field input,.field textarea{width:100%;background:#fffdf8;border:1px solid #d1c9bd;color:#1b1b18;padding:13px;outline:none;border-radius:0;font-size:14px}
+    .field input:focus,.field textarea:focus{border-color:#a98450}
+    .field textarea{resize:vertical;min-height:105px}
+    .modal .btn-solid{width:100%;border:none;background:#221d17;color:#fff;margin-top:3px}
+    .form-note{display:block;font-size:11px;line-height:1.6;color:#6d665b;margin-top:12px}
+    .js .reveal{opacity:0;transform:translateY(34px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
+    .js .reveal.in{opacity:1;transform:translateY(0)}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+    @keyframes globe-turn{from{transform:rotateY(0deg) rotateZ(-8deg)}to{transform:rotateY(360deg) rotateZ(-8deg)}}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(1deg)}50%{transform:translateY(-13px) rotate(-2deg)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media(max-width:1200px){.wrap{width:min(100% - 66px,1440px)}.hero h1{font-size:clamp(65px,8.5vw,112px)}.hero-visual{transform:translateX(1%)}.nav-links{gap:22px}.mock-window{width:53%}.product-card.cart .product-content,.product-card.vanta .product-content{max-width:78%}}
+    @media(max-width:930px){.nav-links,.nav-button{display:none}.menu-button{display:flex}.mobile-panel{display:flex;position:fixed;top:89px;left:0;right:0;background:#141310;border-top:1px solid #ffffff15;flex-direction:column;padding:27px 34px 35px;gap:22px;z-index:85;transform:translateY(-130%);opacity:0;transition:transform .3s,opacity .3s;box-shadow:0 25px 60px #0008}.mobile-panel.open{transform:translateY(0);opacity:1}.mobile-panel a{font:600 24px var(--font-display)}.hero{min-height:auto;padding:155px 0 78px}.hero-grid{display:block}.hero-visual{height:490px;width:min(100%,530px);min-height:0;margin:-10px auto -15px;transform:none}.hero h1{font-size:clamp(80px,12vw,125px)}.hero-foot{margin-top:30px}.section-heading{align-items:start;flex-direction:column}.product-content{padding:30px}.product-card.cart .product-content,.product-card.vanta .product-content{max-width:88%}.phone{width:37%}.cap-head{display:block}.cap-head p{max-width:600px;margin-top:28px}.about-grid{gap:5%}}
+    @media(max-width:700px){.wrap{width:min(100% - 38px,1440px)}.nav{height:75px}.brand-mark{width:36px;height:40px}.brand-name{font-size:16px}.brand-sub{font-size:7px}.mobile-panel{top:74px}.hero{padding:123px 0 65px}.hero h1{font-size:clamp(65px,14.2vw,104px);margin:31px 0 24px}.hero-description{font-size:14px;line-height:1.75;max-width:420px}.hero-visual{height:390px;max-width:430px;margin:8px auto -5px}.orbit-note{padding:11px;min-width:112px}.orbit-note small{font-size:8px}.orbit-note strong{font-size:10px}.note-top{right:-1%;top:12%}.note-bottom{left:-1%;bottom:11%}.hero-foot{margin-top:18px;gap:30px}.hero-foot strong{font-size:17px}.vertical-rail{display:none}.products{padding:85px 0 100px}.section-heading{margin:33px 0 42px}.section-heading h2{font-size:clamp(50px,11vw,77px)}.product-grid{grid-template-columns:1fr}.product-card.wide,.product-card{grid-column:span 1;min-height:570px}.product-content{max-width:none;padding:30px;min-height:570px}.product-card .product-num{margin-bottom:0}.product-text{margin-top:34px}.product-content h3{font-size:49px}.product-content p{max-width:310px}.mock-window{top:auto;bottom:-18%;right:-18%;width:95%;height:43%;transform:rotate(-5deg)}.ticket-art{top:auto;bottom:-5%;right:-5%;height:48%;width:74%;transform:rotate(9deg)}.ticket-shell{padding:16px;max-width:270px}.ticket-illustration{margin:10px 0 0}.ticket-illustration:before{font-size:48px}.ticket-head{font-size:8px}.ticket-bottom b{font-size:17px}.ticket-cut{margin:12px -16px 8px}.ticket-bottom .fake-qr{width:60px;height:60px}.product-card.cart .product-content,.product-card.vanta .product-content{max-width:none;padding:30px}.product-card.cart .product-content h3,.product-card.vanta .product-content h3{font-size:48px}.phone{height:46%;width:46%;bottom:-5%;right:5%}.br-score{bottom:3%;right:-17%;width:95%;height:39%}.capabilities{padding:95px 0 100px}.cap-head{margin:40px 0 50px}.cap-head h2{font-size:clamp(48px,10.7vw,72px)}.cap-head p{font-size:14px}.cap-row{grid-template-columns:42px 1fr 23px;gap:10px;padding:25px 0}.cap-row h3{font-size:26px}.cap-row p{grid-column:2/span 1;font-size:12px}.cap-arrow{grid-column:3;grid-row:1 / span 2}.statement{min-height:520px;padding:90px 0}.statement h2{font-size:clamp(51px,10vw,80px)}.statement .subline{align-items:start;flex-direction:column}.about{padding:100px 0}.about-grid{display:flex;flex-direction:column;gap:25px}.about-left img{width:135px;margin:24px 0 0}.about h2{font-size:clamp(48px,9vw,70px)}.about p{font-size:14px}.about-meta{margin-top:45px}.cta{padding:92px 0 90px}.cta h2{font-size:clamp(56px,11vw,85px);margin:48px 0 35px}.cta-bottom{align-items:start;flex-direction:column}.footer-top{grid-template-columns:1fr 1fr;gap:36px}.footer-top>div:first-child{grid-column:span 2}.footer-bottom{align-items:start;flex-direction:column}.modal-dialog{padding:26px}.form-row{grid-template-columns:1fr}}
+    @media(max-width:420px){.hero h1{font-size:clamp(54px,13.8vw,65px)}.hero-actions{gap:16px}.btn-solid{padding:17px}.hero-foot{gap:15px}.hero-foot strong{font-size:15px}.hero-visual{height:320px}.product-card{min-height:530px}.product-content{min-height:530px}.product-content h3{font-size:43px}.product-card.cart .product-content h3,.product-card.vanta .product-content h3{font-size:42px}.phone{width:48%}.br-score{bottom:2%}.br-row{padding:12px 14px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="top-progress" id="progress"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand" aria-label="Bagatata Technologies homepage">
+        <img class="brand-mark" src="assets/ribbon-b.png" alt="" />
+        <span class="brand-word"><span class="brand-name">BAGATATA</span><span class="brand-sub">TECHNOLOGIES LIMITED</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#products">Our products</a><a href="#expertise">What we do</a><a href="#about">Who we are</a>
+      </nav>
+      <a href="#contact" class="nav-button">LET'S BUILD <span>↗</span></a>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false" aria-controls="mobilePanel">☰</button>
+    </div>
+  </header>
+  <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+    <a href="#products">Our products</a><a href="#expertise">What we do</a><a href="#about">Who we are</a><a href="#contact">Let's build ↗</a>
+  </nav>
+  <main>
+    <section class="hero" id="top">
+      <span class="vertical-rail">BAGATATA / TECHNOLOGY WITH PURPOSE / EST. 2026</span>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">AN INDEPENDENT TECHNOLOGY COMPANY</div>
+          <h1>BUILD<br /><span>WHAT</span><span><em>SHOULD</em></span><span>EXIST.</span></h1>
+          <p class="hero-description">We turn ambitious ideas into products that solve real problems. From education to commerce, events to intelligent systems. Made to work in the real world.</p>
+          <div class="hero-actions">
+            <a href="#products" class="btn-solid">EXPLORE OUR WORLD <span>↗</span></a>
+            <a href="#about" class="btn-quiet">The story behind Bagatata <span>↗</span></a>
+          </div>
+          <div class="hero-foot">
+            <div><span class="mono">01 / ORIGIN</span><strong>Abuja, Nigeria</strong></div>
+            <div><span class="mono">02 / APPROACH</span><strong>Ideas. Products. Impact.</strong></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Animated gold orbital structure surrounding the Bagatata B emblem" role="img">
+          <div class="visual-haze"></div><div class="visual-halo"></div>
+          <div class="sphere" id="sphere"><div class="sphere-rings"><div class="longitude l1"></div><div class="longitude l2"></div><div class="longitude l3"></div><div class="longitude l4"></div><div class="longitude l5"></div><div class="lat lat1"></div><div class="lat lat2"></div><div class="lat lat3"></div></div>
+            <div class="sphere-center"><img src="assets/ribbon-b.png" alt="" /></div>
+          </div>
+          <i class="particle p1"></i><i class="particle p2"></i><i class="particle p3"></i><i class="particle p4"></i>
+          <div class="orbit-note note-top"><small>/// MISSION</small><strong>MAKE IT MATTER.</strong></div>
+          <div class="orbit-note note-bottom"><small>/// APPROACH</small><strong>BUILD. SHIP. EVOLVE.</strong></div>
+          <span class="visual-index">BGT / 001 / 2026</span>
+        </div>
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack">
+      <span>IDEAS <b>✳</b> PRODUCTS <b>✳</b> REAL IMPACT <b>✳</b> TECHNOLOGY WITH PURPOSE <b>✳</b> MADE TO MATTER <b>✳</b></span>
+      <span>IDEAS <b>✳</b> PRODUCTS <b>✳</b> REAL IMPACT <b>✳</b> TECHNOLOGY WITH PURPOSE <b>✳</b> MADE TO MATTER <b>✳</b></span>
+    </div></div>
+    <section class="products" id="products">
+      <div class="wrap">
+        <div class="section-label reveal"><span>01 / THE ECOSYSTEM</span><span class="right">INDEPENDENT THINKING. TANGIBLE PRODUCTS.</span></div>
+        <div class="section-heading reveal"><h2>NOT IDEAS.<br /><em>REAL THINGS.</em></h2><p>Different industries. One obsession: building useful systems that make complicated things feel simple.</p></div>
+        <div class="product-grid">
+          <article class="product-card wide loomis reveal"><div class="back-grid"></div>
+            <div class="product-content"><span class="product-num">BAGATATA / PRODUCT 001</span><div class="product-text"><span class="product-tag">Education / Operations</span><h3>Loomis<span style="color:#d1ad75">.</span></h3><p>The connected operating system for modern schools. One place to run the work behind better education.</p><a class="product-link" href="https://loomis.digital" target="_blank" rel="noopener noreferrer">EXPLORE LOOMIS <span>↗</span></a></div></div>
+            <div class="mock-window" aria-hidden="true"><div class="mock-top"><span>loomis<span style="color:#b78c50">.</span> / workspace</span><span class="mock-dot"><i></i><i></i><i></i></span></div><div class="mock-body"><div class="mock-side"><i></i><i></i><i></i><i></i><i></i></div><div class="mock-main"><span class="tiny">YOUR SCHOOL, ONE CONNECTED SYSTEM.</span><h4>Good morning, Admin.</h4><div class="mock-metrics"><div class="mock-metric"><span class="tiny">Students</span><b></b></div><div class="mock-metric"><span class="tiny">Payments</span><b></b></div><div class="mock-metric"><span class="tiny">Attendance</span><b></b></div></div><div class="mock-bars"><span style="height:46%"></span><span style="height:68%"></span><span style="height:52%"></span><span style="height:80%"></span><span style="height:65%"></span><span style="height:91%"></span><span style="height:70%"></span><span style="height:100%"></span><span style="height:74%"></span></div></div></div></div>
+          </article>
+          <article class="product-card wide ticket reveal"><div class="back-grid"></div><div class="product-content"><span class="product-num">BAGATATA / PRODUCT 002</span><div class="product-text"><span class="product-tag">Live Events / Digital Access</span><h3>EventTickets<span style="color:#d6ac79">NG.</span></h3><p>From the first ticket sold to the final guest checked in. Better tools for unforgettable real-world events.</p><a class="product-link" href="https://eventticketsng.com" target="_blank" rel="noopener noreferrer">EXPLORE EVENTTICKETSNG <span>↗</span></a></div></div>
+            <div class="ticket-art" aria-hidden="true"><div class="ticket-shell"><div class="ticket-head"><span>EVENTTICKETSNG</span><span>ADMIT / ONE</span></div><div class="ticket-illustration"></div><div class="ticket-cut"></div><div class="ticket-bottom"><div><b>YOU'RE IN.</b><small>SAMPLE PASS / DEMO ONLY</small></div><div class="fake-qr" id="sampleQr"></div></div></div></div>
+          </article>
+          <article class="product-card cart reveal"><div class="back-grid"></div><div class="product-content"><span class="product-num">BAGATATA / PRODUCT 003</span><div class="product-text"><span class="product-tag">Social Commerce / Mobile</span><h3>ChatCart<span style="color:#d6ac79">.</span></h3><p>Where conversations become commerce. A more natural way to discover, negotiate and buy.</p><a class="product-link" href="https://chatcart.shop" target="_blank" rel="noopener noreferrer">DISCOVER CHATCART <span>↗</span></a></div></div>
+            <div class="phone" aria-hidden="true"><div class="phone-header">← &nbsp; Conversation with seller</div><div class="phone-message">Is this still available?</div><div class="phone-message out">Yes, ready to order ✨</div><div class="phone-product"><i></i><span><b>Your next find.</b>Make an offer</span></div></div>
+          </article>
+          <article class="product-card vanta reveal"><div class="back-grid"></div><div class="product-content"><span class="product-num">BAGATATA / PRODUCT 004</span><div class="product-text"><span class="product-tag">Gaming / Competition</span><h3>ArewaVanta<span style="color:#d6ac79">.</span></h3><p>Competitive gaming deserves serious infrastructure. Built for the communities making it happen.</p><a class="product-link" href="#contact">ASK ABOUT THE PROJECT <span>↗</span></a></div></div>
+            <div class="br-score" aria-hidden="true"><div class="br-head"><b>AREWAVANTA / BR</b><span>DEMO MATCH</span></div><div class="br-row"><span>#01</span><span>Squad Alpha <i style="display:block;margin-top:5px;width:88%"></i></span><strong>01</strong></div><div class="br-row"><span>#02</span><span>Squad Bravo <i style="display:block;margin-top:5px"></i></span><strong>02</strong></div><div class="br-row"><span>#03</span><span>Squad Charlie <i style="display:block;margin-top:5px"></i></span><strong>03</strong></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="capabilities" id="expertise"><div class="wrap">
+      <div class="section-label reveal"><span>02 / WHAT WE BRING TO THE TABLE</span><span class="right">FROM FIRST PRINCIPLE TO FINAL PRODUCT</span></div>
+      <div class="cap-head reveal"><h2>THINK DEEP.<br /><em>BUILD BOLD.</em></h2><p>We connect strategy, design and engineering. Not as separate departments, but as one way of creating things that actually work.</p></div>
+      <div class="cap-list">
+        <div class="cap-row reveal"><span class="num">01/</span><h3>Product engineering</h3><p>Software platforms, web and mobile experiences, robust systems built for everyday use.</p><span class="cap-arrow">↗</span></div>
+        <div class="cap-row reveal"><span class="num">02/</span><h3>Applied intelligence</h3><p>Practical AI, data-driven features and automations tied to real problems, not just the latest headline.</p><span class="cap-arrow">↗</span></div>
+        <div class="cap-row reveal"><span class="num">03/</span><h3>Digital infrastructure</h3><p>Commerce, payments, access and operational tooling that help businesses run better.</p><span class="cap-arrow">↗</span></div>
+        <div class="cap-row reveal"><span class="num">04/</span><h3>Venture creation</h3><p>From overlooked problems to carefully designed, independently built digital products.</p><span class="cap-arrow">↗</span></div>
+      </div>
+    </div></section>
+    <section class="statement"><div class="wrap"><div class="mono reveal">03 / OUR BELIEF</div><h2 class="reveal">THE BIGGEST IDEAS<br />START WITH <em>ONE<br />BETTER QUESTION.</em></h2><div class="subline reveal"><p>What if technology was designed around the people using it? That question is where we start. Everything else is engineering.</p><span class="mono">THINK / DESIGN / BUILD / EVOLVE</span></div></div></section>
+    <section class="about" id="about"><div class="wrap about-grid"><div class="about-left reveal"><span class="mono">04 / THE COMPANY</span><img src="assets/ribbon-b.png" alt="Bagatata ribbon B emblem" /></div><div class="about-right reveal"><h2>ROOTED HERE.<br /><em>BUILT FOR<br />EVERYWHERE.</em></h2><p>Bagatata Technologies Limited is an independent technology company based in Abuja, Nigeria. We create digital products for everyday challenges and approach each one with the same standard: useful by design, thoughtful in execution, and built to evolve.</p><p>Our work spans education, events, commerce and community technology, with room for the next problem worth solving.</p><div class="about-tags"><span>SOFTWARE</span><span>PRODUCTS</span><span>AI & DATA</span><span>PLATFORMS</span><span>EMERGING TECH</span></div><div class="about-meta"><div><span class="mono">INCORPORATED</span><b>2026</b></div><div><span class="mono">HEADQUARTERS</span><b>Abuja, Nigeria</b></div><div><span class="mono">REGISTRATION</span><b>RC 9936491</b></div></div></div></div></section>
+    <section class="cta" id="contact"><div class="wrap"><div class="section-label reveal"><span>05 / NEXT STARTS HERE</span><span class="right">GOOD IDEAS DON'T BUILD THEMSELVES.</span></div><h2 class="reveal">HAVE A PROBLEM<br />WORTH <em>SOLVING?</em></h2><div class="cta-bottom reveal"><p>Tell us what you're imagining, wrestling with, or trying to change. The first step is a conversation.</p><button class="btn-solid" type="button" data-open-modal>LET'S TALK ABOUT IT <span>↗</span></button></div></div></section>
+  </main>
+  <footer class="footer"><div class="wrap"><div class="footer-top"><div><a href="#top" class="brand"><img class="brand-mark" src="assets/ribbon-b.png" alt="" /><span class="brand-word"><span class="brand-name">BAGATATA</span><span class="brand-sub">TECHNOLOGIES LIMITED</span></span></a><div class="footer-slogan">Independent thinking. Tangible products.<br />Ideas. Products. Real impact.</div></div><div class="footer-column"><h4>Explore</h4><a href="#products">Our ecosystem</a><a href="#expertise">What we do</a><a href="#about">The company</a><a href="#contact">Start a conversation</a></div><div class="footer-column"><h4>Our products</h4><a href="https://loomis.digital" target="_blank" rel="noopener noreferrer">Loomis ↗</a><a href="https://eventticketsng.com" target="_blank" rel="noopener noreferrer">EventTicketsNG ↗</a><a href="https://chatcart.shop" target="_blank" rel="noopener noreferrer">ChatCart ↗</a><span>ArewaVanta</span></div></div><div class="footer-bottom"><span>© <span id="year"></span> BAGATATA TECHNOLOGIES LIMITED. ALL RIGHTS RESERVED.</span><span>DESIGNED TO MATTER. BUILT IN NIGERIA. ◈</span></div></div></footer>
+  <div class="modal" id="inquiryModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle"><div class="modal-dialog"><button class="modal-close" type="button" id="modalClose" aria-label="Close inquiry form">×</button><span class="mono">PROJECT START / 001</span><h3 id="modalTitle">WHAT ARE WE<br />BUILDING?</h3><p>This is a concept-site preview. You can prepare a project brief here. A live submission endpoint needs to be connected before launch.</p><form id="briefForm"><div class="form-row"><div class="field"><label for="briefName">Your name</label><input id="briefName" name="name" required placeholder="Your name" /></div><div class="field"><label for="briefEmail">Your email</label><input id="briefEmail" type="email" name="email" required placeholder="you@company.com" /></div></div><div class="field"><label for="briefProject">What are you trying to build?</label><textarea id="briefProject" name="project" required placeholder="Tell us about your idea, product, or problem..."></textarea></div><button class="btn-solid" type="submit">COPY PROJECT BRIEF <span>↗</span></button><small class="form-note" id="briefStatus">Preview mode: this does not send or store your details.</small></form></div></div>
+  <script>
+    (() => {
+      const nav=document.getElementById('nav'),progress=document.getElementById('progress'),menuBtn=document.getElementById('menuButton'),menu=document.getElementById('mobilePanel');
+      function updateScroll(){const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.transform='scaleX('+(max>0?window.scrollY/max:0)+')';nav.classList.toggle('scrolled',window.scrollY>25)}
+      window.addEventListener('scroll',updateScroll,{passive:true});updateScroll();
+      function closeMenu(){menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';document.body.classList.remove('menu-open')}
+      menuBtn.addEventListener('click',()=>{const open=!menu.classList.contains('open');menu.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'×':'☰';document.body.classList.toggle('menu-open',open)});
+      menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+      const reveals=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -25px 0px'});reveals.forEach(e=>observer.observe(e))}else reveals.forEach(e=>e.classList.add('in'));
+      const qr=document.getElementById('sampleQr');const isOn=(x,y)=>{const c=(ox,oy)=>x>=ox&&x<ox+3&&y>=oy&&y<oy+3;if(c(0,0)||c(6,0)||c(0,6))return true;return ((x*13+y*17+x*y*3)%7)<3};for(let y=0;y<9;y++)for(let x=0;x<9;x++){let i=document.createElement('i');i.className=isOn(x,y)?'on':'';qr.appendChild(i)}
+      document.getElementById('year').textContent=new Date().getFullYear();
+      const modal=document.getElementById('inquiryModal'),close=document.getElementById('modalClose');let priorFocus=null;
+      const openModal=()=>{priorFocus=document.activeElement;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');close.focus()};
+      const closeModal=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(priorFocus&&priorFocus.focus)priorFocus.focus()};
+      document.querySelectorAll('[data-open-modal]').forEach(b=>b.addEventListener('click',openModal));close.addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
+      document.getElementById('briefForm').addEventListener('submit',async e=>{e.preventDefault();const data=new FormData(e.currentTarget);const brief=['BAGATATA TECHNOLOGIES / PROJECT INQUIRY','',`Name: ${data.get('name')}`,`Email: ${data.get('email')}`,'','Project brief:',data.get('project')].join('\n');const status=document.getElementById('briefStatus');try{await navigator.clipboard.writeText(brief);status.textContent='Brief copied to clipboard. No data was submitted.';}catch{const blob=new Blob([brief],{type:'text/plain'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='bagatata-project-brief.txt';a.click();URL.revokeObjectURL(url);status.textContent='Brief downloaded. No data was submitted.'}});
+      document.addEventListener('keydown',e=>{if(e.key!=='Tab'||!modal.classList.contains('open'))return;const nodes=[...modal.querySelectorAll('button,[href],input,textarea,select')].filter(el=>!el.disabled);const first=nodes[0],last=nodes[nodes.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
+    })();
+  </script>
+</body>
+</html>

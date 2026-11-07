@@ -1,0 +1,60 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex: none;
+}
+.ribbon-mark {
+  position: relative;
+  display: block;
+  flex: none;
+  aspect-ratio: var(--mark-aspect);
+  overflow: hidden;
+}
+.ribbon-mark > img {
+  position: absolute;
+  top: var(--mark-image-top);
+  left: var(--mark-image-left);
+  display: block;
+  width: var(--mark-image-width);
+  max-width: none;
+  height: auto;
+}
+.brand-mark {
+  width: 35px;
+  height: auto;
+}
+.brand-type {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.brand-name {
+  font:
+    600 19px/0.95 "Space Grotesk",
+    Arial,
+    sans-serif;
+  letter-spacing: 0.075em;
+}
+.brand-subtitle {
+  font-size: 6.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+}
+@media (max-width: 700px) {
+  .brand-mark {
+    width: 31px;
+    height: auto;
+  }
+  .brand {
+    gap: 9px;
+  }
+  .brand-name {
+    font-size: 17px;
+  }
+  .brand-subtitle {
+    font-size: 5.6px;
+    letter-spacing: 0.21em;
+  }
+}

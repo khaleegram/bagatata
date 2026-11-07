@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "loomis",
+    "name": "Loomis",
+    "category": "Education technology",
+    "statusInternal": "in_development",
+    "publicStatusLabel": null,
+    "summary": "A connected school management platform bringing academic records, attendance, fees and communication into one clearer workflow.",
+    "problem": "Schools run critical processes through fragmented systems and manual records.",
+    "highlights": ["Student management", "Attendance and gradebook", "School finance", "Parent communication"],
+    "knownDomain": "https://loomis.digital",
+    "externalLinkEnabled": false,
+    "legalRelationshipVerified": false,
+    "visualIsIllustrative": true
+  },
+  {
+    "slug": "eventticketsng",
+    "name": "EventTicketsNG",
+    "category": "Event ticketing and access",
+    "statusInternal": "launched_reported",
+    "publicStatusLabel": null,
+    "summary": "A ticketing platform to create events, sell tickets, track activity and manage entry.",
+    "problem": "Organizers need a connected way to run ticket sales and on-site entry.",
+    "highlights": ["Event creation", "Ticket inventory", "Sales dashboard", "QR check-in", "Agent workflows"],
+    "knownDomain": "https://eventticketsng.com",
+    "externalLinkEnabled": true,
+    "legalRelationshipVerified": false,
+    "visualIsIllustrative": true
+  },
+  {
+    "slug": "chatcart",
+    "name": "ChatCart",
+    "category": "Social commerce",
+    "statusInternal": "in_development",
+    "publicStatusLabel": null,
+    "summary": "A mobile-first shopping experience combining discovery, conversation, offers and organized orders.",
+    "problem": "Social commerce conversations and payments often sit in disconnected workflows.",
+    "highlights": ["Product discovery", "Seller-buyer chat", "Deals and offers", "Checkout and order tracking"],
+    "knownDomain": "https://chatcart.shop",
+    "externalLinkEnabled": false,
+    "legalRelationshipVerified": true,
+    "legalNoteInternal": "Bagatata has described ChatCart as its trading name/merchant activity. Do not claim wallets, deposits, escrow or payment custody; Paystack is payment processor.",
+    "visualIsIllustrative": true
+  },
+  {
+    "slug": "arewavanta",
+    "name": "ArewaVanta",
+    "category": "Community esports",
+    "statusInternal": "preparing_launch",
+    "publicStatusLabel": null,
+    "summary": "A competition and statistics platform for Northern Nigeria's Call of Duty: Mobile Battle Royale community.",
+    "problem": "Community tournaments need clear scores, squads, results and rankings.",
+    "highlights": ["Competitions", "Squad rosters", "Match results", "Configurable scoring", "Player rankings"],
+    "knownDomain": null,
+    "externalLinkEnabled": false,
+    "legalRelationshipVerified": false,
+    "visualIsIllustrative": true
+  }
+]

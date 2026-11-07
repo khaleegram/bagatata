@@ -1,0 +1,1145 @@
+.illustration-caption {
+  position: absolute;
+  z-index: 3;
+  left: 26px;
+  bottom: 16px;
+  font: 11px var(--font-mono);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  border-left: 1px solid currentColor;
+  padding-left: 8px;
+  max-width: calc(100% - 46px);
+  line-height: 1.6;
+}
+.product-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.art-kicker {
+  font: 7px var(--font-mono);
+  letter-spacing: 0.08em;
+  color: #84867b;
+}
+/* Concept 01 / school workspace */
+.loomis-art {
+  background: radial-gradient(ellipse at 60% 55%, #b0985426, transparent 67%);
+}
+.school-window {
+  position: absolute;
+  width: 108%;
+  height: 330px;
+  top: 64px;
+  left: 3%;
+  border: 5px solid #40433b;
+  border-radius: 10px;
+  background: #f8f7f1;
+  color: #25291f;
+  box-shadow: 0 25px 60px #0006;
+  overflow: hidden;
+  transform: perspective(900px) rotateY(-7deg) rotateZ(-4deg);
+  transition: transform 0.5s;
+}
+.product-card:hover .school-window {
+  transform: perspective(900px) rotateY(-4deg) rotateZ(-2deg) translateY(-4px);
+}
+.school-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  height: 44px;
+  padding: 0 20px;
+  border-bottom: 1px solid #dedfd4;
+}
+.school-wordmark {
+  font: 600 19px var(--font-display);
+  letter-spacing: -0.07em;
+}
+.school-wordmark > span {
+  color: #ac8b56;
+}
+.school-workspace {
+  font-size: 8px;
+  color: #797c70;
+  margin-right: auto;
+}
+.window-dots {
+  display: flex;
+  gap: 5px;
+}
+.window-dots i {
+  width: 5px;
+  height: 5px;
+  background: #d1d1c7;
+  border-radius: 50%;
+}
+.window-dots i:first-child {
+  background: #bd9c67;
+}
+.school-body {
+  height: calc(100% - 44px);
+  display: grid;
+  grid-template-columns: 77px 1fr;
+}
+.school-sidebar {
+  background: #eaece3;
+  border-right: 1px solid #dddfd5;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+.school-sidebar > span {
+  height: 4px;
+  border-radius: 3px;
+  background: #c4c9b8;
+}
+.school-sidebar > .sidebar-active {
+  background: #a18b62;
+}
+.school-main {
+  padding: 23px 26px;
+}
+.school-main h4 {
+  font: 500 24px var(--font-display);
+  letter-spacing: -0.05em;
+  margin: 7px 0 5px;
+}
+.school-main h4 > span {
+  color: #b3996b;
+}
+.school-main > p {
+  font-size: 8px;
+  color: #878a7f;
+  margin: 0 0 18px;
+}
+.school-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
+}
+.school-metrics > div {
+  border: 1px solid #e2e5d9;
+  background: #fffefa;
+  border-radius: 4px;
+  padding: 12px;
+}
+.school-metrics span {
+  display: block;
+  font-size: 7px;
+  color: #7c8173;
+}
+.school-metrics i {
+  display: block;
+  margin-top: 12px;
+  width: 38%;
+  height: 7px;
+  border-radius: 2px;
+  background: #9ba98b;
+}
+.school-metrics > div:nth-child(2) i {
+  background: #bd9e69;
+  width: 50%;
+}
+.school-metrics > div:nth-child(3) i {
+  background: #a6afa0;
+  width: 65%;
+}
+.school-chart {
+  margin-top: 20px;
+  border: 1px solid #e2e5d9;
+  border-radius: 4px;
+  padding: 14px 16px 9px;
+  background: #fffefa;
+}
+.school-chart-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.school-chart-label strong {
+  font-size: 8px;
+  font-weight: 500;
+}
+.school-chart-label > span {
+  font-size: 6px;
+  color: #999f8f;
+}
+.school-bars {
+  height: 66px;
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  margin-top: 14px;
+  border-bottom: 1px solid #e2e5d9;
+}
+.school-bars > i {
+  flex: 1;
+  background: #b5c1a5;
+  border-radius: 2px 2px 0 0;
+}
+.school-bars > i:nth-child(even) {
+  background: #d6c29d;
+}
+.chart-axis {
+  display: flex;
+  justify-content: space-around;
+  font: 5px var(--font-mono);
+  color: #939886;
+  margin-top: 7px;
+}
+/* Concept 01 / sample ticket */
+.event-art {
+  background: radial-gradient(ellipse at 60% 50%, #bba87d10, transparent 65%);
+}
+.event-orbit {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border: 1px solid #cdb28417;
+  border-radius: 50%;
+  top: 55px;
+  left: 19%;
+}
+.event-orbit.orbit-two {
+  width: 430px;
+  height: 430px;
+  top: 5px;
+  left: 11%;
+}
+.event-ticket {
+  position: absolute;
+  width: 245px;
+  height: 345px;
+  background: #f1eadc;
+  color: #1d2026;
+  padding: 20px 19px;
+  border-radius: 8px;
+  top: 39px;
+  left: 27%;
+  box-shadow: 0 30px 65px #0008;
+  transform: rotate(9deg);
+  transition: transform 0.5s;
+}
+.product-card:hover .event-ticket {
+  transform: rotate(5deg) translateY(-5px);
+}
+.ticket-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: 6px var(--font-mono);
+}
+.ticket-top > strong {
+  font: 600 10px var(--font-display);
+  letter-spacing: -0.04em;
+}
+.ticket-top > strong span {
+  color: #a27e43;
+}
+.ticket-graphic {
+  height: 185px;
+  position: relative;
+  background: #161a21;
+  margin-top: 16px;
+  overflow: hidden;
+}
+.ticket-graphic-circle {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 1px solid #d5b77b;
+  border-radius: 50%;
+  top: -40px;
+  right: -90px;
+  box-shadow:
+    0 0 0 17px #161a21,
+    0 0 0 18px #d5b77b88,
+    0 0 0 35px #161a21,
+    0 0 0 36px #d5b77b66,
+    0 0 0 53px #161a21,
+    0 0 0 54px #d5b77b44;
+}
+.ticket-graphic > strong {
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  font: 600 41px/0.93 var(--font-display);
+  letter-spacing: -0.07em;
+  color: #f2e8d2;
+  transform: rotate(-6deg);
+}
+.ticket-graphic > strong > span {
+  font-size: 12px;
+  color: #d5b77b;
+  letter-spacing: -0.03em;
+}
+.ticket-sample {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: #cfb58b;
+  font: 6px var(--font-mono);
+  letter-spacing: 0.08em;
+}
+.ticket-perforation {
+  border-top: 1px dashed #afa38b;
+  margin: 21px -19px 13px;
+  position: relative;
+}
+.ticket-perforation::before,
+.ticket-perforation::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #15171b;
+  left: -9px;
+  top: -9px;
+}
+.ticket-perforation::after {
+  left: auto;
+  right: -9px;
+}
+.ticket-base {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.ticket-base .art-kicker {
+  font-size: 5px;
+  display: block;
+  color: #82735b;
+}
+.ticket-base strong {
+  display: block;
+  font: 600 27px var(--font-display);
+  letter-spacing: -0.06em;
+}
+.ticket-code {
+  font: 5px var(--font-mono);
+  color: #82735b;
+  display: block;
+  margin-top: 4px;
+}
+.ticket-qr {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  width: 55px;
+  height: 55px;
+  gap: 1px;
+  padding: 3px;
+  border: 1px solid #bcb39e;
+}
+.ticket-qr > i {
+  background: #ede6d7;
+}
+.ticket-qr > i.qr-dark {
+  background: #252722;
+}
+.event-small-label {
+  position: absolute;
+  right: 3%;
+  top: 48%;
+  font: 7px/1.8 var(--font-mono);
+  color: #9f947f;
+  writing-mode: vertical-rl;
+  text-align: center;
+}
+/* Concept 01 / conversational commerce */
+.commerce-art {
+  background: radial-gradient(ellipse at 60% 80%, #bb83372a, transparent 67%);
+}
+.commerce-orbit {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ddb47a15;
+  border-radius: 50%;
+  position: absolute;
+  left: 20%;
+  top: 25px;
+}
+.commerce-phone {
+  position: absolute;
+  width: 211px;
+  height: 355px;
+  background: #f5f2e9;
+  border: 6px solid #474137;
+  border-radius: 28px;
+  top: 37px;
+  left: 39%;
+  color: #342e23;
+  transform: rotate(10deg);
+  box-shadow: -20px 10px 45px #0004;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+.product-card:hover .commerce-phone {
+  transform: rotate(6deg) translateY(-4px);
+}
+.phone-camera {
+  position: absolute;
+  width: 58px;
+  height: 9px;
+  top: 0;
+  left: calc(50% - 29px);
+  background: #474137;
+  border-radius: 0 0 8px 8px;
+}
+.phone-status {
+  padding: 10px 14px 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 6px;
+}
+.phone-chat-header {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 12px 7px;
+  background: #eae6db;
+  border-bottom: 1px solid #d9d2c3;
+}
+.phone-chat-header > span {
+  font-size: 10px;
+}
+.seller-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #c0a579;
+  display: grid;
+  place-items: center;
+  color: #fff9ea;
+  font-size: 8px;
+  flex: none;
+}
+.phone-chat-header strong {
+  font-size: 6px;
+  font-weight: 600;
+  display: block;
+}
+.phone-chat-header small {
+  font-size: 5px;
+  color: #93836a;
+  display: block;
+  margin-top: 3px;
+}
+.phone-chat-header > span:last-child {
+  margin-left: auto;
+}
+.chat-date {
+  display: block;
+  text-align: center;
+  font: 5px var(--font-mono);
+  color: #a39b88;
+  margin: 14px 0;
+}
+.chat-bubble {
+  margin: 10px 12px;
+  width: 74%;
+  background: #e5dfcf;
+  padding: 11px;
+  border-radius: 8px 8px 8px 0;
+  font-size: 7px;
+  line-height: 1.4;
+}
+.chat-bubble small {
+  display: block;
+  text-align: right;
+  font-size: 4px;
+  color: #8a7d67;
+  margin-top: 5px;
+}
+.chat-bubble.outgoing {
+  margin-left: auto;
+  background: #dfc18f;
+  border-radius: 8px 8px 0 8px;
+}
+.chat-product {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #eee6d5;
+  border: 1px solid #dcd0b8;
+  border-radius: 7px;
+  margin: 12px;
+  padding: 9px;
+}
+.product-parcel {
+  width: 37px;
+  height: 40px;
+  position: relative;
+  background: #b18a51;
+  transform: rotate(-5deg);
+  border-radius: 3px;
+  flex: none;
+}
+.product-parcel > span {
+  width: 8px;
+  height: 100%;
+  left: 14px;
+  top: 0;
+  background: #dfc48f;
+  position: absolute;
+}
+.product-parcel::after {
+  content: "";
+  width: 15px;
+  height: 9px;
+  border: 1px solid #e0c38d;
+  position: absolute;
+  bottom: 7px;
+  left: 3px;
+}
+.chat-product small {
+  font: 4px var(--font-mono);
+  color: #a28b64;
+  display: block;
+}
+.chat-product strong {
+  font-size: 7px;
+  display: block;
+  margin-top: 4px;
+}
+.chat-product > div > span {
+  font-size: 5px;
+  display: block;
+  margin-top: 5px;
+  color: #92733e;
+}
+.chat-input {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 12px;
+  background: #e8e2d5;
+  border: 1px solid #ded6c4;
+  padding: 8px;
+  border-radius: 14px;
+  font-size: 6px;
+  color: #a49881;
+}
+.commerce-message {
+  position: absolute;
+  left: 7%;
+  top: 90px;
+  border-left: 1px solid #ddb47a66;
+  padding-left: 10px;
+}
+.commerce-message > span {
+  display: block;
+  font: 7px var(--font-mono);
+  color: #c4ad87;
+  line-height: 1.8;
+}
+.commerce-message > span:last-child {
+  font: 6px var(--font-body);
+  color: #a08e70;
+}
+/* Concept 01 / community match standings */
+.gaming-art {
+  background: radial-gradient(ellipse at 60% 65%, #79738c21, transparent 67%);
+}
+.gaming-crosshair {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #b0a5ce17;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+  left: 23%;
+}
+.gaming-crosshair::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  bottom: -30px;
+  left: 50%;
+  width: 1px;
+  background: #b0a5ce12;
+}
+.gaming-watermark {
+  position: absolute;
+  top: 35px;
+  right: 6%;
+  color: #d8d1e412;
+  font: 600 130px var(--font-display);
+  letter-spacing: -0.12em;
+}
+.gaming-scoreboard {
+  position: absolute;
+  width: 92%;
+  height: 240px;
+  background: #17191f;
+  border: 1px solid #585361;
+  left: 17%;
+  top: 75px;
+  box-shadow: 0 30px 50px #0005;
+  transform: rotate(-7deg);
+  transition: transform 0.5s;
+}
+.product-card:hover .gaming-scoreboard {
+  transform: rotate(-4deg) translateY(-5px);
+}
+.scoreboard-top {
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: #272730;
+  border-bottom: 1px solid #494551;
+  gap: 15px;
+  font: 600 9px var(--font-display);
+  letter-spacing: 0.02em;
+}
+.scoreboard-slash {
+  font-weight: 400;
+  color: #a89fb9;
+}
+.scoreboard-demo {
+  font: 5px var(--font-mono);
+  color: #d4bf93;
+  letter-spacing: 0.08em;
+}
+.scoreboard-label {
+  padding: 13px 18px 8px;
+}
+.scoreboard-label > span {
+  display: block;
+  font: 5px var(--font-mono);
+  letter-spacing: 0.08em;
+  color: #8e879b;
+}
+.scoreboard-label > strong {
+  display: block;
+  font: 500 20px var(--font-display);
+  letter-spacing: -0.05em;
+  margin-top: 5px;
+}
+.scoreboard-label > strong > span {
+  color: #bfa37b;
+}
+.scoreboard-columns {
+  display: grid;
+  grid-template-columns: 32px 1fr 55px;
+  padding: 5px 18px;
+  font: 4px var(--font-mono);
+  letter-spacing: 0.08em;
+  color: #8b8399;
+}
+.scoreboard-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 55px;
+  align-items: center;
+  padding: 10px 18px;
+  border-top: 1px solid #ffffff0b;
+}
+.scoreboard-rank {
+  font: 8px var(--font-mono);
+  color: #d9bd89;
+}
+.scoreboard-row > div > strong {
+  font-size: 7px;
+  font-weight: 500;
+}
+.squad-bar {
+  display: block;
+  height: 3px;
+  background: #c5aa7c;
+  border-radius: 1px;
+  margin-top: 5px;
+}
+.scoreboard-row:nth-last-child(3) .squad-bar {
+  background: #9b92aa;
+}
+.scoreboard-row:nth-last-child(2) .squad-bar {
+  background: #6f6b7d;
+}
+.scoreboard-row > strong {
+  font: 9px var(--font-mono);
+  text-align: right;
+  color: #d8d3df;
+}
+.scoreboard-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 18px;
+  border-top: 1px solid #ffffff13;
+  font: 4px var(--font-mono);
+  color: #8d839e;
+  letter-spacing: 0.04em;
+}
+/* Individual product views keep their product art and palette. */
+.product-detail {
+  padding: 145px 0 90px;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  min-height: 44px;
+  color: var(--text-secondary);
+}
+.product-detail-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 50px;
+  margin: 40px 0 50px;
+}
+.product-detail-heading h1 {
+  font: 750 clamp(55px, 7vw, 102px)/1.1 var(--font-display);
+  letter-spacing: -0.035em;
+  margin: 20px 0 0;
+}
+.product-detail-heading h1 > span {
+  color: var(--gold);
+}
+.product-detail-heading > p {
+  max-width: 370px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin: 0 0 5px;
+}
+.product-detail-visual {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  background: #1b1d18;
+  border: 1px solid #ddb47a2b;
+}
+.product-detail-visual > .product-art {
+  max-width: 700px;
+  margin-inline: auto;
+}
+.product-detail-visual .school-window {
+  width: 90%;
+  height: 370px;
+  left: 5%;
+}
+.product-detail-visual .school-bars {
+  height: 105px;
+}
+.product-detail-visual .event-ticket {
+  width: 270px;
+  height: 380px;
+  left: calc(50% - 135px);
+  top: 45px;
+}
+.product-detail-visual .ticket-graphic {
+  height: 210px;
+}
+.product-detail-visual .commerce-phone {
+  top: 60px;
+  height: 430px;
+  width: 240px;
+  left: calc(50% - 120px);
+}
+.product-detail-visual .commerce-message {
+  left: 8%;
+}
+.product-detail-visual .chat-bubble {
+  font-size: 9px;
+  padding: 14px;
+}
+.product-detail-visual .chat-product {
+  padding: 14px;
+}
+.product-detail-visual .gaming-scoreboard {
+  left: 5%;
+  width: 90%;
+  top: 115px;
+  height: 300px;
+}
+.product-detail-visual .scoreboard-top {
+  height: 45px;
+  font-size: 13px;
+}
+.product-detail-visual .scoreboard-label {
+  padding: 20px 22px;
+}
+.product-detail-visual .scoreboard-label > strong {
+  font-size: 26px;
+}
+.product-detail-visual .scoreboard-row {
+  padding: 14px 22px;
+}
+.product-detail-visual .scoreboard-row > div > strong {
+  font-size: 10px;
+}
+.product-detail.eventticketsng .product-detail-visual {
+  background: #14161b;
+}
+.product-detail.chatcart .product-detail-visual {
+  background: #211b15;
+}
+.product-detail.arewavanta .product-detail-visual {
+  background: #1b1b23;
+}
+.product-detail-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15%;
+  margin: 70px 0 90px;
+}
+.product-detail-body h2 {
+  font: 700 48px/1.08 var(--font-display);
+  letter-spacing: -0.03em;
+  margin: 24px 0;
+}
+.product-detail-body p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-top: 22px;
+}
+.detail-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 35px;
+  border-top: 1px solid var(--line);
+}
+.detail-highlights li {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.detail-highlights li > span {
+  color: var(--gold);
+  margin-right: 14px;
+}
+.product-detail-body .text-link {
+  margin-top: 20px;
+}
+.other-products {
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+}
+.other-products > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 25px;
+}
+.other-products a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font: 650 26px var(--font-display);
+  letter-spacing: -0.025em;
+  min-height: 54px;
+}
+.other-products .arrow-icon {
+  color: var(--gold);
+}
+@media (min-width: 1500px) {
+  .school-window {
+    top: 72px;
+    height: 350px;
+  }
+  .event-ticket {
+    top: 45px;
+    width: 270px;
+    height: 370px;
+  }
+  .ticket-graphic {
+    height: 205px;
+  }
+}
+@media (max-width: 1100px) {
+  .event-ticket {
+    left: 18%;
+  }
+  .school-window {
+    left: 5%;
+  }
+  .commerce-phone {
+    left: 38%;
+  }
+  .commerce-message {
+    left: 5%;
+    top: 65px;
+  }
+  .commerce-message > span {
+    font-size: 6px;
+  }
+  .commerce-message > span:last-child {
+    font-size: 5px;
+  }
+  .product-detail-heading {
+    gap: 35px;
+  }
+  .product-detail-heading > p {
+    max-width: 310px;
+    font-size: 13px;
+  }
+  .other-products a {
+    font-size: 22px;
+  }
+}
+@media (max-width: 800px) {
+  .school-window {
+    width: 145%;
+    left: 3%;
+    top: 80px;
+    height: 320px;
+  }
+  .event-ticket {
+    left: 7%;
+    width: 215px;
+    top: 40px;
+  }
+  .event-small-label {
+    display: none;
+  }
+  .commerce-phone {
+    width: 185px;
+    left: 30%;
+    top: 35px;
+  }
+  .commerce-message {
+    display: none;
+  }
+  .gaming-scoreboard {
+    width: 115%;
+    left: 10%;
+  }
+  .product-detail-heading {
+    display: block;
+  }
+  .product-detail-heading > p {
+    max-width: 550px;
+    margin-top: 25px;
+    font-size: 15px;
+  }
+  .product-detail-body {
+    gap: 10%;
+  }
+  .other-products a {
+    font-size: 20px;
+  }
+}
+@media (max-width: 700px) {
+  .school-window {
+    width: 105%;
+    height: 280px;
+    left: 13%;
+    top: 42px;
+  }
+  .school-main {
+    padding: 18px;
+  }
+  .school-main h4 {
+    font-size: 21px;
+  }
+  .school-body {
+    grid-template-columns: 57px 1fr;
+  }
+  .school-sidebar {
+    padding-inline: 12px;
+  }
+  .school-metrics {
+    gap: 7px;
+  }
+  .school-metrics > div {
+    padding: 9px;
+  }
+  .school-metrics span {
+    font-size: 6px;
+  }
+  .school-chart {
+    margin-top: 14px;
+  }
+  .school-bars {
+    height: 50px;
+    gap: 9px;
+  }
+  .school-workspace {
+    font-size: 6px;
+  }
+  .school-top {
+    padding-inline: 14px;
+  }
+  .illustration-caption {
+    left: 23px;
+    right: auto;
+    bottom: 10px;
+    font-size: 11px;
+  }
+  .event-ticket {
+    width: 205px;
+    height: 300px;
+    top: 26px;
+    left: calc(50% - 98px);
+    padding: 17px;
+  }
+  .ticket-graphic {
+    height: 155px;
+    margin-top: 13px;
+  }
+  .ticket-graphic > strong {
+    font-size: 35px;
+    top: 20px;
+  }
+  .ticket-graphic > strong > span {
+    font-size: 10px;
+  }
+  .ticket-top > strong {
+    font-size: 8px;
+  }
+  .ticket-perforation {
+    margin-inline: -17px;
+    margin-top: 17px;
+  }
+  .ticket-base strong {
+    font-size: 24px;
+  }
+  .ticket-qr {
+    width: 48px;
+    height: 48px;
+  }
+  .event-orbit {
+    width: 250px;
+    height: 250px;
+    left: calc(50% - 125px);
+    top: 30px;
+  }
+  .event-orbit.orbit-two {
+    width: 340px;
+    height: 340px;
+    left: calc(50% - 170px);
+    top: -15px;
+  }
+  .commerce-phone {
+    width: 205px;
+    top: 30px;
+    left: 39%;
+  }
+  .commerce-message {
+    display: block;
+    top: 90px;
+    left: 6%;
+  }
+  .commerce-message > span {
+    font-size: 6px;
+  }
+  .commerce-message > span:last-child {
+    font-size: 5px;
+  }
+  .gaming-scoreboard {
+    width: 98%;
+    height: 240px;
+    left: 12%;
+    top: 57px;
+  }
+  .product-detail {
+    padding: 112px 0 60px;
+  }
+  .product-detail-heading {
+    margin-top: 25px;
+    margin-bottom: 35px;
+  }
+  .product-detail-heading h1 {
+    font-size: clamp(38px, 10vw, 65px);
+    letter-spacing: -0.035em;
+  }
+  .product-detail-heading > p {
+    font-size: 14px;
+  }
+  .product-detail-visual {
+    height: 370px;
+  }
+  .product-detail-visual .school-window {
+    width: 130%;
+    height: 310px;
+    left: 7%;
+    top: 40px;
+  }
+  .product-detail-visual .school-bars {
+    height: 70px;
+  }
+  .product-detail-visual .event-ticket {
+    width: 230px;
+    height: 325px;
+    top: 25px;
+    left: calc(50% - 115px);
+  }
+  .product-detail-visual .ticket-graphic {
+    height: 180px;
+  }
+  .product-detail-visual .commerce-phone {
+    width: 220px;
+    height: 370px;
+    top: 30px;
+    left: calc(50% - 100px);
+  }
+  .product-detail-visual .commerce-message {
+    display: none;
+  }
+  .product-detail-visual .gaming-scoreboard {
+    width: 120%;
+    left: 5%;
+    height: 280px;
+    top: 75px;
+  }
+  .product-detail-visual .scoreboard-label > strong {
+    font-size: 24px;
+  }
+  .product-detail-visual .scoreboard-top {
+    font-size: 11px;
+  }
+  .product-detail-body {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 45px 0 55px;
+  }
+  .product-detail-body h2 {
+    font-size: 40px;
+  }
+  .product-detail-body p {
+    font-size: 14px;
+  }
+  .product-detail-body .eyebrow {
+    font-size: 11px;
+  }
+  .product-detail-visual .illustration-caption {
+    font-size: 11px;
+    left: 15px;
+  }
+  .other-products > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .other-products a {
+    font-size: 25px;
+    border-bottom: 1px solid var(--line);
+    min-height: 68px;
+  }
+}
+@media (max-width: 370px) {
+  .product-detail.eventticketsng .product-detail-heading h1 {
+    font-size: 35px;
+  }
+  .commerce-phone {
+    left: 31%;
+    width: 185px;
+  }
+  .commerce-message {
+    display: none;
+  }
+  .school-window {
+    width: 135%;
+  }
+  .gaming-scoreboard {
+    width: 120%;
+    left: 9%;
+  }
+}
