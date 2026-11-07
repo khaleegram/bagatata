@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { brandMark } from "@/content/brand";
+import { OrbitalStage } from "@/components/ui/OrbitalStage";
 
 export function OrbitalVisual() {
   const [paused, setPaused] = useState(false);
@@ -39,43 +38,10 @@ export function OrbitalVisual() {
         role="img"
         aria-label="The gold Bagatata ribbon B"
       >
-        <div className="orbital-stage">
-          <div className="orbital-haze" />
-          <div className="orbital-outer" />
-          <div className="orbital-orbit orbit-primary">
-            <div className="orbital-trail">
-              <span />
-            </div>
-          </div>
-          <div className="orbital-orbit orbit-secondary">
-            <div className="orbital-trail">
-              <span />
-            </div>
-          </div>
-          <div className="orbital-sphere">
-            <div className="sphere-rings">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <div key={i} className={`longitude longitude-${i}`} />
-              ))}
-              <div className="latitude latitude-1" />
-              <div className="latitude latitude-2" />
-              <div className="latitude latitude-3" />
-            </div>
-            <div className="orbital-core">
-              <Image
-                src={brandMark.src}
-                alt=""
-                width={brandMark.width}
-                height={brandMark.height}
-                priority
-                sizes="(max-width: 700px) 180px, (max-width: 1100px) 200px, 260px"
-              />
-            </div>
-          </div>
-          <span className="orbital-point point-1" />
-          <span className="orbital-point point-2" />
-          <span className="orbital-point point-3" />
-        </div>
+        <OrbitalStage
+          priority
+          sizes="(max-width: 700px) 180px, (max-width: 1100px) 200px, 260px"
+        />
         <div className="orbital-caption caption-top">
           <span className="orbital-caption-symbol" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none">

@@ -1,0 +1,121 @@
+@import "./orbital.css";
+
+/*
+ * First-load splash. It reuses the hero's orbital ribbon B verbatim, so the
+ * site both opens and continues on the same piece of motion.
+ */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 5vmin, 48px);
+  background:
+    radial-gradient(ellipse at 50% 40%, #9e65251f, transparent 58%), var(--bg);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  transition:
+    opacity 0.62s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.62s;
+}
+.splash[data-state="leaving"] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Hold the page still for as long as the splash exists in the document. */
+html:has(#site-splash),
+html:has(#site-splash) body {
+  overflow: hidden;
+}
+
+.splash-inner {
+  display: grid;
+  justify-items: center;
+  gap: clamp(26px, 5vmin, 46px);
+  animation: splash-enter 0.85s cubic-bezier(0.22, 0.68, 0.2, 1) both;
+}
+
+.splash-art {
+  width: clamp(230px, 46vmin, 420px);
+  aspect-ratio: 1;
+}
+
+/* The hero stage, but sized by the splash instead of the hero column. */
+.splash .orbital-stage {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: 100%;
+}
+.splash .orbital-core {
+  width: 56%;
+  box-shadow:
+    0 0 52px #d29a461f,
+    0 16px 40px #0006;
+}
+
+.splash-caption {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+.splash-wordmark {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.splash-meter {
+  display: block;
+  width: clamp(92px, 16vmin, 150px);
+  height: 1px;
+  background: #ddb47a26;
+  overflow: hidden;
+}
+.splash-meter-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #a7773d, #f5d29a);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: splash-meter 1.55s cubic-bezier(0.32, 0.06, 0.24, 1) 0.1s
+    forwards;
+}
+
+@keyframes splash-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes splash-meter {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-inner {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .splash-meter-fill {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

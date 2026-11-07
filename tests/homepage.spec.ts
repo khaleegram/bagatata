@@ -33,6 +33,23 @@ test("homepage presents the approved brand and the four products in order", asyn
   expect(errors).toEqual([]);
 });
 
+test("the first-load splash opens on the hero ribbon B and then clears the page", async ({
+  page,
+}) => {
+  await page.goto("/", { waitUntil: "commit" });
+  const splash = page.locator("#site-splash");
+  await expect(splash).toBeVisible();
+  await expect(splash.locator(".orbital-core img")).toHaveAttribute(
+    "src",
+    /ribbon-b/,
+  );
+  await expect(page.locator("html")).toHaveCSS("overflow", "hidden");
+  await expect(splash).toBeHidden({ timeout: 15000 });
+  await expect(page.locator("#site-splash")).toHaveCount(0);
+  await expect(page.locator("html")).not.toHaveCSS("overflow", "hidden");
+  await expect(page.locator("body")).not.toHaveCSS("overflow", "hidden");
+});
+
 test("desktop product disclosure supports keyboard access and Escape", async ({
   page,
 }) => {
@@ -158,11 +175,11 @@ test("the hero preserves the original B and lets visitors pause and resume its m
   page,
 }) => {
   await page.goto("/");
-  await expect(page.locator(".orbital-core img")).toHaveAttribute(
+  await expect(page.locator(".hero .orbital-core img")).toHaveAttribute(
     "src",
     /ribbon-b/,
   );
-  await expect(page.locator(".sphere-rings")).toHaveCSS(
+  await expect(page.locator(".hero .sphere-rings")).toHaveCSS(
     "animation-name",
     "sphere-turn",
   );
@@ -175,12 +192,12 @@ test("the hero preserves the original B and lets visitors pause and resume its m
     page.getByRole("button", { name: "Resume animation", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
   for (const selector of [
-    ".sphere-rings",
-    ".orbital-sphere",
-    ".orbital-trail",
-    ".orbital-core",
-    ".orbital-haze",
-    ".caption-top",
+    ".hero .sphere-rings",
+    ".hero .orbital-sphere",
+    ".hero .orbital-trail",
+    ".hero .orbital-core",
+    ".hero .orbital-haze",
+    ".hero .caption-top",
   ]) {
     for (const layer of await page.locator(selector).all()) {
       await expect(layer).toHaveCSS("animation-play-state", "paused");
@@ -202,7 +219,7 @@ test("the hero preserves the original B and lets visitors pause and resume its m
   await page
     .getByRole("button", { name: "Resume animation", exact: true })
     .click();
-  await expect(page.locator(".sphere-rings")).toHaveCSS(
+  await expect(page.locator(".hero .sphere-rings")).toHaveCSS(
     "animation-play-state",
     "running",
   );
@@ -220,7 +237,7 @@ test("hero motion rests offscreen and preserves the visitor’s pause choice", a
 }) => {
   await page.goto("/");
   const visual = page.locator(".hero-visual");
-  const rings = page.locator(".sphere-rings");
+  const rings = page.locator(".hero .sphere-rings");
   await expect(visual).toHaveAttribute("data-idle", "false");
   await page.locator("#services").scrollIntoViewIfNeeded();
   await expect(visual).toHaveAttribute("data-idle", "true");
@@ -310,16 +327,16 @@ test("product cards open their corresponding individual views", async ({
 test("reduced motion removes decorative animation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
-  await expect(page.locator(".sphere-rings")).toHaveCSS(
+  await expect(page.locator(".hero .sphere-rings")).toHaveCSS(
     "animation-name",
     "none",
   );
-  await expect(page.locator(".orbital-sphere")).toHaveCSS(
+  await expect(page.locator(".hero .orbital-sphere")).toHaveCSS(
     "animation-name",
     "none",
   );
   for (const layer of await page
-    .locator(".orbital-trail, .orbital-core, .orbital-haze")
+    .locator(".hero .orbital-trail, .hero .orbital-core, .hero .orbital-haze")
     .all()) {
     await expect(layer).toHaveCSS("animation-name", "none");
   }
@@ -334,7 +351,7 @@ test("reduced motion removes decorative animation", async ({ page }) => {
   await expect(
     page.getByRole("button", { name: "Pause animation", exact: true }),
   ).toBeVisible();
-  await expect(page.locator(".sphere-rings")).toHaveCSS(
+  await expect(page.locator(".hero .sphere-rings")).toHaveCSS(
     "animation-name",
     "sphere-turn",
   );
@@ -436,12 +453,14 @@ test("the phone hero integrates the supplied B beside the headline", async ({
     expect(artwork!.y).toBeLessThan(headline!.y + headline!.height);
     expect(artwork!.y + artwork!.height).toBeLessThan(accent!.y);
     expect(artwork!.y + artwork!.height).toBeLessThan(description!.y);
-    await expect(page.locator(".orbital-core img")).toHaveAttribute(
+    await expect(page.locator(".hero .orbital-core img")).toHaveAttribute(
       "src",
       /ribbon-b-trial-03/,
     );
     for (const layer of await page
-      .locator(".sphere-rings, .orbital-orbit, .orbital-outer, .orbital-point")
+      .locator(
+        ".hero .sphere-rings, .hero .orbital-orbit, .hero .orbital-outer, .hero .orbital-point",
+      )
       .all()) {
       await expect(layer).toBeVisible();
     }
@@ -462,7 +481,7 @@ test("the complete mobile orbital scene animates and pauses together", async ({
   );
   const clocks = () =>
     page
-      .locator(".orbital-stage")
+      .locator(".hero .orbital-stage")
       .evaluate((e) =>
         e
           .getAnimations({ subtree: true })
@@ -492,7 +511,7 @@ test("the complete mobile orbital scene animates and pauses together", async ({
     .toBe(true);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect.poll(async () => (await clocks()).length).toBe(0);
-  await expect(page.locator(".orbital-core img")).toBeVisible();
+  await expect(page.locator(".hero .orbital-core img")).toBeVisible();
 });
 
 test("mobile services expand with the keyboard and desktop still shows every service", async ({

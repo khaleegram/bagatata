@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SplashScreen } from "@/components/layout/SplashScreen";
 import { company } from "@/content/company";
 import { brandMark } from "@/content/brand";
 import { siteConfig } from "@/lib/site-config";
@@ -30,6 +31,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = { themeColor: "#0c0c0b" };
+
+/**
+ * Safety net: if hydration ever fails, remove the splash so the page can still
+ * be used. Otherwise the React component dismisses it.
+ */
+const splashFallbackScript = [
+  "window.setTimeout(function(){",
+  'var s=document.getElementById("site-splash");',
+  "if(s)s.remove();",
+  "},6000);",
+].join("");
 
 export default function RootLayout({
   children,
@@ -69,6 +81,10 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        <script dangerouslySetInnerHTML={{ __html: splashFallbackScript }} />
+        <noscript>
+          <style>{`#site-splash{display:none!important}html:has(#site-splash){overflow:auto!important}`}</style>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -77,6 +93,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bagatata-site">
+        <SplashScreen />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
